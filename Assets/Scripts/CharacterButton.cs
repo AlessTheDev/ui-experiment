@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum ButtonAction
@@ -17,7 +15,6 @@ public class CharacterButton : MonoBehaviour
 
     public ButtonAction ButtonAction { get { return action; } }
 
-    private bool highlighted = false;
     public void Highlight()
     {
         overlay.SetActive(true);

@@ -1,9 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Splines;
 
+/// <summary>
+/// Test class
+/// </summary>
+[System.Obsolete]
 public class SplineHandler : MonoBehaviour
 {
     [SerializeField] private SplineContainer splineContainer;

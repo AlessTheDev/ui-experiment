@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Class to help with the creation of the metal chain
+/// </summary>
 public class TileRow : MonoBehaviour
 {
     [SerializeField] private Transform spawner;

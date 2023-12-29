@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Simple shake script
+/// </summary>
 public class Shake : MonoBehaviour
 {
     [SerializeField] private float intensity;

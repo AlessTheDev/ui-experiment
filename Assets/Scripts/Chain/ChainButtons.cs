@@ -7,7 +7,7 @@ public class ChainButtons : MonoBehaviour
     [SerializeField] private SplineContainer splineContainer;
     [SerializeField] private CharacterButton[] buttons;
 
-    private int currentButton = 0;
+    private int currentButton = 0; // The selected button
 
     [Header("Settings")]
     [SerializeField] private float distance = 0.1f;
@@ -27,11 +27,8 @@ public class ChainButtons : MonoBehaviour
     [SerializeField] private GameObject mirkoTrigger;
     [SerializeField] private GameObject bluwolfTrigger;
 
+    // Buttons offset
     private float offset;
-
-    private float3 position;
-    private float3 forward;
-    private float3 upVector;
 
     private float buttonWidth;
 
@@ -63,17 +60,23 @@ public class ChainButtons : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Updates the offset based on the selected button
+    /// </summary>
     private void UpdateOffset()
     {
         float newOffset = startOffset - (startOffset / (buttons.Length) * 2) * currentButton;
         offset = Mathf.Lerp(offset, newOffset, Time.deltaTime * moveSpeed);
     }
 
+    /// <summary>
+    /// Updates the buttons position and rotation
+    /// </summary>
     private void UpdateButtons()
     {
         for (int i = 0; i < buttons.Length; i++)
         {
-            splineContainer.Evaluate(0, i * distance + offset, out position, out forward, out upVector);
+            splineContainer.Evaluate(0, i * distance + offset, out float3 position, out float3 forward, out float3 upVector);
 
             // Set the position
             buttons[i].transform.position = (Vector3)position + new Vector3(buttonWidth + 0.5f, 0, 0);
@@ -88,6 +91,9 @@ public class ChainButtons : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Changes the state of the buttons based on the selected button
+    /// </summary>
     private void ButtonsState()
     {
         alessMask.SetBool("active", false);

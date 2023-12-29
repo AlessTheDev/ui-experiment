@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Could have used new input system but since it is an experiment it isn't worth it
+/// </summary>
 public class MenuInputManager : MonoBehaviour
 {
     public static bool Up => Input.GetKeyDown(KeyCode.W);

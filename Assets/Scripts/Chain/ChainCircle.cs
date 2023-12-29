@@ -8,6 +8,7 @@ public class ChainCircle : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        // If it collides with a button
         if(collision.gameObject.layer == LayerMask.NameToLayer("UI"))
         {
             blackCircle.SetActive(true);

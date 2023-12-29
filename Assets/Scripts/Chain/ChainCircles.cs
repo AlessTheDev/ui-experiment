@@ -9,10 +9,6 @@ public class ChainCircles : MonoBehaviour
     [SerializeField] private SplineContainer splineContainer;
     [SerializeField] private GameObject chainObject;
 
-    private float3 position;
-    private float3 forward;
-    private float3 upVector;
-
     private void Start()
     {
         GenerateCircles();
@@ -29,9 +25,9 @@ public class ChainCircles : MonoBehaviour
 
         for (float currentStep = 0; currentStep < splineLength; currentStep += STEP)
         {
-            splineContainer.Evaluate(0, currentStep, out position, out forward, out upVector);
+            splineContainer.Evaluate(0, currentStep, out float3 position, out float3 forward, out float3 upVector);
 
-            // Calculate the angle (in degrees) from the forward vector
+            // Calculate the angle from the forward vector
             float angle = Mathf.Atan2(forward.y, forward.x) * Mathf.Rad2Deg;
 
             // Create the rotation quaternion from the Euler angle, rotating only around the Z-axis

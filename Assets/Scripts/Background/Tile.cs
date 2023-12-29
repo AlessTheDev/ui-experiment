@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
 
-public class LinkedTile : MonoBehaviour
+public class Tile : MonoBehaviour
 {
     [SerializeField] private GameObject mask;
 
@@ -21,8 +18,11 @@ public class LinkedTile : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("MaskTrigger"))
         {
+            // Show mask
             mask.SetActive(true);
             TileTrigger trigger = collision.gameObject.GetComponent<TileTrigger>();
+
+            // Update outiline color
             outlineSr.color = trigger.outlineColor; 
         }
     }

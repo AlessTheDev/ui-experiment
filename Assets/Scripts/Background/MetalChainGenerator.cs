@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class to help with the creation of the metal chain
+/// </summary>
 public class MetalChainGenerator : MonoBehaviour
 {
     [SerializeField] private int toSpawn;
